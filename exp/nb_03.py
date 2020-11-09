@@ -25,4 +25,4 @@ class Dataset():
 from torch.utils.data import DataLoader, SequentialSampler, RandomSampler
 
 def get_dls(train_ds, valid_ds, bs, **kwargs):
-  return DataLoader(train_ds, bs, shuffle=True, **kwargs), DataLoader(train_ds, bs * 2, shuffle=False, **kwargs)
+  return DataLoader(train_ds, bs, shuffle=True, **kwargs), DataLoader(valid_ds, bs * 2, shuffle=False, **kwargs)
