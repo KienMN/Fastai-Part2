@@ -52,7 +52,7 @@ class ParamScheduler(Callback):
 class LR_Find(Callback):
   _order=1
   def __init__(self, max_iter=100, min_lr=1e-6, max_lr=10):
-    self.max_iter = iter
+    self.max_iter = max_iter
     self.min_lr = min_lr
     self.max_lr = max_lr
     self.best_loss = 1e9
