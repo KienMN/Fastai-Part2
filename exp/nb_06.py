@@ -82,6 +82,8 @@ class ListContainer():
   def __getitem__(self, idx):
     if isinstance(idx, (int, slice)):
       return self.items[idx]
+    if isinstance(idx, torch.Tensor) and len(idx.size()) == 0: # Handle 0-dim tensor
+      return self.items[idx.item()]
     if isinstance(idx[0], bool):
       assert len(idx) == len(self) # bool mask
       return [o for m, o in zip(idx, self.items) if m]
